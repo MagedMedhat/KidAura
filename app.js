@@ -37,14 +37,15 @@ app.use((req, res, next) => {
 
 const PORT=process.env.PORT||3022;
 
+app.listen(PORT, () => {
+  console.log("Server running on port " + PORT);
+});
+
 mongoose
-.connect(process.env.MONGO_URI)
-.then(()=>{
-  console.log("Connected")
-  app.listen(PORT);
-
-}).catch(err=>{
-  console.log(err)
-})
-
-
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log("MongoDB Connected");
+  })
+  .catch(err => {
+    console.log("MongoDB connection error:", err);
+  });
