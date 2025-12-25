@@ -1,0 +1,22 @@
+{
+  "name": "dummy-kidora",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "body-parser": "^2.2.1",
+    "express": "^5.1.0",
+    "mongoose": "^9.0.0",
+    "nodemon": "^3.1.11",
+    "pug": "^3.0.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}

@@ -1,0 +1,28 @@
+extends layout.pug
+
+block styles
+  link(rel="stylesheet", href="/css/reader.css")
+
+
+
+block content
+  .app-container
+    #screen-reader.screen.active
+      .reader-nav
+        a.btn-back(href="/library") ❌ Close
+        h2#reader-title-display(style="margin:0;")= story.title
+        button.btn-speak(onclick="speakText()") 🔊 Read Page
+      .page-container
+        img#story-image.story-img(src="", alt="Story Scene")
+        .story-text-box
+          p#story-text
+      .reader-controls
+        button.btn-nav#btn-prev(onclick="prevPage()") ⬅ Prev
+        span#page-number Page 1
+        button.btn-nav.btn-next#btn-next(onclick="nextPage()") Next ➡
+
+block scripts
+  script.
+    // Pass story data from server to JavaScript
+    const storyData = !{JSON.stringify(story)};
+  script(src="/scripts/reader.js")

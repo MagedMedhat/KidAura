@@ -1,0 +1,39 @@
+extends layout.pug
+
+block styles
+  link(rel="stylesheet", href="/css/library.css")
+
+block content
+  .app-container
+    #screen-library.screen.active
+      .hero-section
+        .top-bar
+          .user-badge
+            span#user-avatar 😎
+            span#user-name-display Friend
+          a.btn-logout(href="/") Logout
+        .hero-content
+          h1.kidora-title KidAura
+          
+          //- Centered Image
+          .centered-image
+            img.main-image(src="https://scontent.faly8-2.fna.fbcdn.net/v/t39.30808-6/589612246_122093521857146616_7675803904386869883_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Rmd58g55uMsQ7kNvwHmB7eu&_nc_oc=Adlsgxk0D9qzv1hplutaFxATNdBp2vzv7UcY7Ah2dbKFc_Q3W7TVNljiEgbkDUMUpzM&_nc_zt=23&_nc_ht=scontent.faly8-2.fna&_nc_gid=NtqqVuRMAjk72m8NSRLyBw&oh=00_Afhl2TQ1KHTS9JbDDBsjMRKInTZkePt6_3ab--jZxG14xQ&oe=6932B586", alt="Kidora Stories")
+      
+      .slider-section
+        button.slider-arrow.arrow-left(onclick="scrollSlider(-1)") ‹
+        .carousel-container#library-container
+          //- Add Story Button (First Card)
+          a.book-card.add-story-btn(href="/add-story")
+            .book-icon ➕
+            .book-title Add Story
+          
+          //- Existing Stories
+          each story in stories
+            a.book-card(href=`/reader/${story._id}`, class="color-1")
+              .book-image-container
+                img.book-cover-img(src=story.coverImgUrl, alt=story.title)
+              .book-title= story.title
+        button.slider-arrow.arrow-right(onclick="scrollSlider(1)") ›
+
+block scripts
+  script(src="/scripts/library.js")

@@ -1,0 +1,10 @@
+extends layout.pug
+
+block content
+  .app-container
+    .error-container(style="display: flex; align-items: center; justify-content: center; height: 100vh; background: var(--kidora-blue);")
+      .error-box(style="background: white; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2);")
+        h1(style="color: var(--kidora-red); font-size: 3rem; margin-bottom: 20px;") ⚠️
+        h2(style="color: #333; margin-bottom: 15px;")= pageTitle
+        p(style="color: #666; margin-bottom: 25px; font-size: 1.1rem;")= message
+        a.btn.btn-green(href="/") Go Home

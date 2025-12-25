@@ -1,0 +1,36 @@
+extends layout.pug
+
+block styles
+  link(rel="stylesheet", href="/css/auth.css")
+
+block content
+  .app-container
+    #screen-auth.screen.active
+      .auth-box
+        h1.logo-text KidAura
+        p Welcome! Please login or create an account
+        
+        form#auth-form
+          .form-group
+            label(for="username") Username:
+            input.form-input(type="text", id="username", name="username", placeholder="Enter your username", required)
+          
+          .form-group
+            label(for="password") Password:
+            input.form-input(type="password", id="password", name="password", placeholder="Enter your password", required)
+          
+          .auth-actions
+            button.btn.btn-green(type="submit") Login
+            button.btn.btn-blue(type="button", onclick="showSignup()") Create Account
+        
+        #signup-section(style="display: none;")
+          .form-group
+            label(for="email") Email:
+            input.form-input(type="email", id="email", name="email", placeholder="Enter your email")
+          
+          .auth-actions
+            button.btn.btn-purple(type="button", onclick="createAccount()") Sign Up
+            button.btn.btn-red(type="button", onclick="hideSignup()") Cancel
+
+block scripts
+  script(src="/scripts/auth.js")

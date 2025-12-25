@@ -1,0 +1,179 @@
+/* --- READER SCREEN STYLES --- */
+#screen-reader {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.reader-nav {
+    background: var(--kidora-purple);
+    color: white;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    height: 70px;
+}
+
+.btn-back, .btn-speak {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.btn-back:hover, .btn-speak:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+}
+
+.page-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+.story-img {
+    max-width: 90%;
+    max-height: 50vh;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+    object-fit: cover;
+}
+
+.story-text-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border: 2px solid #e9ecef;
+}
+
+#story-text {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: #333;
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reader-controls {
+    height: 80px;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    flex-shrink: 0;
+    border-top: 2px solid #dee2e6;
+}
+
+.btn-nav {
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Fredoka One', cursive;
+    background: #ccc;
+    color: #555;
+    min-width: 100px;
+    transition: all 0.2s;
+}
+
+.btn-nav:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+}
+
+.btn-nav:active { 
+    transform: translateY(2px); 
+    box-shadow: none; 
+}
+
+.btn-nav:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-next { 
+    background: var(--kidora-green); 
+    color: white; 
+}
+
+.btn-next:hover {
+    background: #00b359;
+}
+
+#page-number {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Reader Specific Responsive */
+@media (max-width: 768px) {
+    .story-text-box {
+        padding: 15px;
+    }
+    
+    #story-text {
+        font-size: 1.2rem;
+    }
+    
+    .reader-nav {
+        padding: 10px 15px;
+        height: 60px;
+    }
+    
+    .btn-back, .btn-speak {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-container {
+        padding: 15px;
+    }
+    
+    .story-img {
+        max-height: 40vh;
+    }
+    
+    #story-text {
+        font-size: 1.1rem;
+    }
+    
+    .reader-controls {
+        padding: 0 15px;
+        height: 70px;
+    }
+    
+    .btn-nav {
+        padding: 10px 15px;
+        font-size: 1rem;
+        min-width: 80px;
+    }
+}

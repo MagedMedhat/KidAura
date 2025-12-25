@@ -1,0 +1,79 @@
+extends layout.pug
+
+block styles
+    link(rel="stylesheet", href="/css/add-story.css")
+
+block content
+    .admin-container
+        .admin-header
+            h1 Add New Story
+            a.back-btn(href="/library") ← Back to Library
+        
+        .form-container
+            form.item-form#storyForm(method="POST" action="/add-story")
+                .story-basics
+                    h2.section-title Story Basics
+                    
+                    .form-group
+                        label(for="title") Story Title *
+                        input#title(
+                            type="text" 
+                            name="title" 
+                            required 
+                            placeholder="Enter story title"
+                        )
+                        .helper-text Required. The title will appear in the library.
+                    
+                    .form-group
+                        label(for="coverImgUrl") Cover Image URL
+                        input#coverImgUrl(
+                            type="url" 
+                            name="coverImgUrl" 
+                            placeholder="https://example.com/cover.jpg"
+                        )
+                        .helper-text Optional. A placeholder will be generated if empty.
+                
+                .story-pages-section
+                    h2.section-title Story Pages
+                    p.page-info Add pages to your story. Page 1 is required.
+                    
+                    #pagesContainer
+                        .page-card(data-page="1")
+                            .page-header
+                                h3 
+                                    span.page-number 1
+                                    span Page 1 *
+                                button.remove-page-btn(type="button" disabled title="Cannot remove first page") ✕
+                            .form-group
+                                label Page Content *
+                                textarea.page-content(
+                                    name="pageContent1" 
+                                    required 
+                                    placeholder="Write the story text for this page..." 
+                                    rows="4"
+                                )
+                            .form-group
+                                label Page Image URL
+                                input.page-image(
+                                    type="url" 
+                                    name="pageImage1" 
+                                    placeholder="https://placehold.co/600x400/1E90FF/white?text=Page+1"
+                                )
+                    
+                    .add-page-section
+                        button#addPageBtn.btn-add-page(type="button")
+                            span.btn-icon +
+                            span.btn-text Add Another Page
+                
+                .form-actions
+                    button.btn-reset(type="reset") Clear Form
+                    button.btn-submit(type="submit") Create Story
+        
+        .preview-section
+            h3.section-title Live Preview
+            .story-preview
+                #storyPreview.preview-placeholder
+                    p Fill the form to see preview
+
+block scripts
+    script(src="/scripts/add-story.js")
