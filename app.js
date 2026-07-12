@@ -40,11 +40,12 @@ const PORT=process.env.PORT||3022;
 mongoose
 .connect(process.env.MONGO_URI)
 .then(()=>{
-  console.log("Connected")
+  console.log("Connected at http://localhost:"+PORT)
   app.listen(PORT);
 
 }).catch(err=>{
   console.log(err)
 })
+
 
 
